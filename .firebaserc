@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "pickaapp-79307"
+  },
+  "targets": {
+    "pickaapp-79307": {
+      "hosting": {
+        "world": [
+          "mwila-world"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
