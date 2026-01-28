@@ -1,3 +1,2 @@
-import './assets/css/style.min.css'
-import './assets/js/scripts'
-
+import './assets/css/style.min.css';
+import './assets/js/scripts';
