@@ -1,24 +1,22 @@
-name: Linters
+name: Deploy Staging
 
 on:
-  pull_request:
-    branches: [development, main]
-
-env:
-  FORCE_COLOR: 1
+  push:
+    branches: [development]
 
 jobs:
-  lint:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - run: npm ci
-      - run: npm run lint:js
-      - run: npm run lint:css
+      - run: npm run build
+
+      - name: Deploy
+        run: |
+          rsync -avz dist/ user@staging:/var/www/app
