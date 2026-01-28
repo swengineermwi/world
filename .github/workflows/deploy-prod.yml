@@ -1,0 +1,5 @@
+jobs:
+  deploy:
+    if: false
+    runs-on: ubuntu-latest
+    environment: production
