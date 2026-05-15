@@ -1,5 +1,32 @@
+name: Deploy Main (Firebase Hosting)
+
+on:
+  push:
+    branches: [main]
+
 jobs:
   deploy:
-    if: false
     runs-on: ubuntu-latest
     environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Install Firebase CLI
+        run: npm install --global firebase-tools
+
+      - name: Deploy to Firebase Hosting target world
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-sa.json"
+          firebase deploy --only hosting:world --project pickaapp-79307 --non-interactive
