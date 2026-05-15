@@ -1,49 +1,51 @@
-# WEBPACK 5 TEMPLATE
+# world
 
-> Everything you need to start using webpack is all setup and ready to use just run the following commands to get started:
+Portfolio website for Mwila Kaunda, built with webpack and deployed to Firebase Hosting.
 
-Get started by copying and pasting the following in your terminal: 
+## Stack
 
-- 1 
-```
-git clone git@github.com:Tchilo/webpack.git
-```
-- 2
+- Node.js 20
+- webpack
+- ESLint + Stylelint
+- Firebase Hosting
 
-```
-cd webpack
-```
+## Local development
 
-- 3
-```
+```bash
 npm install
+npm start
 ```
 
-- 4
+Development server opens in your browser.
 
- This will generate a dist folder you never edit what is in there.
-```
+## Quality checks
+
+```bash
+npm run lint:js
+npm run lint:css
+npm test
 npm run build
 ```
 
+## Branch workflow
 
-- 5
+This repository is set up for Git Flow-style branching:
 
-```
-npm start
-```
-The browser will open and you should see this text : "Let's Make it Happen!", if this is not the case please stay calm and simply open your browser and paste this.
-```
-http://localhost:3000
-```
+- `main`: production
+- `develop`: integration
+- `feature/*`, `release/*`, `hotfix/*`: short-lived branches
 
+## CI/CD
 
-- 6
+GitHub Actions workflows:
 
- You can start editing the files in the "src" folder
+- `Linters`: runs JS/CSS lint on `develop` and `main`
+- `Build and Test`: runs tests and webpack build on `develop` and `main`
+- `Deploy Develop`: deploys on push to `develop`
+- `Deploy Main`: deploys on push to `main`
 
-## Happy coding! 🌈
+## Deployment prerequisites
 
-if you are interested in learning more about webpack click the link below
+Set this GitHub repository secret before deploy workflows can succeed:
 
-[click here!](https://webpack.js.org/guides/getting-started/)
+- `FIREBASE_SERVICE_ACCOUNT`: full JSON credentials for a Firebase service account with Hosting deploy permissions in project `pickaapp-79307`

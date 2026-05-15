@@ -1,18 +1,22 @@
 {
-  "name": "webpack-demo",
+  "name": "world-portfolio-site",
   "version": "1.0.0",
-  "description": "",
-  "private": "true",
+  "description": "Mwila World portfolio site built with webpack and deployed to Firebase Hosting.",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test test/*.test.js",
     "build": "webpack",
     "start": "webpack serve --open",
     "dev": "webpack --mode development",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"**/*.{css,scss}\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "portfolio",
+    "webpack",
+    "firebase-hosting"
+  ],
+  "author": "Mwila Kaunda",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.28.6",
