@@ -1,5 +1,4 @@
 import './assets/css/style.min.css';
-import { g } from '../../utils/dom-utils.js';
 
 import diaspora from './assets/img/diaspora.png';
 import feebs from './assets/img/feebs.png';
@@ -9,6 +8,8 @@ import kudu from './assets/img/kudu.png';
 import profile from './assets/img/pp.jpg';
 
 import './assets/js/scripts';
+
+export const g = (id) => document.getElementById(id);
 
 g('diaspora').src = diaspora;
 g('feebs').src = feebs;
